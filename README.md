@@ -1,7 +1,18 @@
 OhFormErrorLogBundle
 =================
 
-Log form errors
+Log form errors.
+
+Functional testing your forms is all well and good, but how do you know your 
+users are using it correctly? This plugin can log the errors your users are
+making so that you can spot any usability problems.
+
+WARNING: This bundle tries to json_encode your bound entity if the error is on
+the whole form. If it can't be json_encoded it will try to serialize before
+finally logging the whole _POST request. THIS IS A SECURITY RISK IF USED ON
+FORMS CONTAINING SENSITIVE DATA, LIKE PASSWORDS OR CREDIT CARD INFORMATION. If
+this is the case, you should implement the Serializeable or JsonSerializable
+interfaces on your bound objects to block out the sensitive data. 
 
 Installation
 ------------
@@ -24,7 +35,8 @@ Register the bundle in `app/AppKernel.php`:
 Set up
 ------------
 
-There are 2 logging methods provided. One uses your normal logger (Monolog) and the other logs into a database
+There are 2 logging methods provided. One uses your normal logger (Monolog) and 
+the other logs into a database
 
 Method 1: Monolog
 ------------
@@ -50,7 +62,8 @@ You will need to create a new channel in your monolog settings called 'formerror
 Method 2: Database
 ------------
 
-This uses Doctrine. You should create your own Entity which implements FormErrorLogEntityInterface
+This uses Doctrine. You should create your own Entity which implements 
+FormErrorLogEntityInterface
 
 	<?php
 
@@ -222,10 +235,12 @@ And in your controller
 	}
 
 
-Tests
+Todo
 -------
 
-@todo
+* Tests
+* Support for Symfony\Component\Serializer\Normalizer
+
 
 Credits
 -------

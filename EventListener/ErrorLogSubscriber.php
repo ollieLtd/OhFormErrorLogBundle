@@ -54,18 +54,23 @@ class ErrorLogSubscriber implements EventSubscriberInterface
             $data = $form->getData();
             if(is_object($data))
             {
-                if(method_exists($data, '__toString')) {
-                    $data = (string) $data;
-                }elseif(method_exists($data, '__sleep')) {
-                    $data = @serialize($data);
-                }
-                elseif($data instanceof JsonSerializable) {
+                
+                if(class_exists('\JsonSerializable', false) && $data instanceof \JsonSerializable) {
                     $data = json_encode($data);
                 }
-                else {
+                elseif(method_exists($data, 'jsonSerialize'))
+                {
+                    $data = $data->jsonSerialize();
+                }
+                elseif(method_exists($data, '__sleep') || $data instanceof Serializable) {
+                    $data = @serialize($data);
+                }
+                elseif($this->request->request->has($form->getName())) {
                     //lets just get the form data
                     $data = json_encode($this->request->request->get($form->getName()));
-                }                
+                }else {
+                    $data = '';
+                }
             }
             $errors[$key] = array('messages'=>$error->getMessage(), 'value'=>$data);
         }

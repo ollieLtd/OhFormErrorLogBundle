@@ -7,6 +7,10 @@ use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 
 class Logger implements ErrorLogInterface
 {
+    /**
+     * The monolog logger
+     * @var Monolog\Logger
+     */
     private $logger;
     
     public function __construct($logger)
@@ -14,6 +18,13 @@ class Logger implements ErrorLogInterface
         $this->logger = $logger;
     }
     
+    /**
+     * 
+     * @param string $formName
+     * @param string $key
+     * @param string $error
+     * @param string $value
+     */
     public function log($formName, $key, $error, $value = '')
     {
         

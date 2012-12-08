@@ -7,12 +7,13 @@ Functional testing your forms is all well and good, but how do you know your
 users are using it correctly? This plugin can log the errors your users are
 making so that you can spot any usability problems.
 
-WARNING: This bundle tries to json_encode your bound entity if the error is on
-the whole form. If it can't be json_encoded it will try to serialize before
-finally logging the whole _POST request. THIS IS A SECURITY RISK IF USED ON
-FORMS CONTAINING SENSITIVE DATA, LIKE PASSWORDS OR CREDIT CARD INFORMATION. If
-this is the case, you should implement the Serializeable or JsonSerializable
-interfaces on your bound objects to block out the sensitive data. 
+WARNING: If the error is on the whole form this bundle tries to json_encode your 
+bound entity. If it can't be json_encoded it will try to serialize before
+finally logging the whole _POST request for the form. THIS IS A SECURITY RISK IF 
+USED ON FORMS CONTAINING SENSITIVE DATA, LIKE PASSWORDS OR CREDIT CARD 
+INFORMATION. If this is the case, you should implement the Serializeable or 
+JsonSerializable (PHP 5.4) interfaces on your bound objects to block out the 
+sensitive data.
 
 Installation
 ------------
@@ -240,6 +241,7 @@ Todo
 
 * Tests
 * Support for Symfony\Component\Serializer\Normalizer
+* Test with different FormTypes (like FileType)
 
 
 Credits

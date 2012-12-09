@@ -18,6 +18,12 @@ sensitive data.
 Installation
 ------------
 
+This bundle is alpha stability due to the lack of testing on different form 
+types. Your composer.json needs to reflect that by setting the
+minimum-stability to "alpha" or "dev"
+
+    "minimum-stability": "alpha"
+
 Install this bundle as usual by adding to composer.json:
 
     "oh/form-error-log-bundle": "dev-master"

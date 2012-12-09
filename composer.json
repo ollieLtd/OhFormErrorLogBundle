@@ -6,6 +6,7 @@
     "homepage": "https://github.com/ollieLtd/OhFormErrorLogBundle",
     "license": "MIT",
 	"version": "1.0.0",
+    "minimum-stability": "alpha",
     "authors": [
         {
             "name": "Ollie Harridge",

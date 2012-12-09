@@ -74,7 +74,7 @@ FormErrorLogEntityInterface
 
 	<?php
 
-	namespace Your\Bundle\\Entity;
+	namespace Your\Bundle\Entity;
 
 	use Doctrine\ORM\Mapping as ORM;
 	use Oh\FormErrorLogBundle\Entity\FormErrorLogEntityInterface;
@@ -170,7 +170,7 @@ You can create your own methods to store the date (I use Gedmo)
 In your parameters.yml you can set the class to your entity
 
     #app/config/parameters.yml
-    oh_form_error_log.db.entity.class: Your\Bundle\\Entity\FormErrorLog
+    oh_form_error_log.db.entity.class: Your\Bundle\Entity\FormErrorLog
 
 
 Your Form
@@ -199,7 +199,7 @@ Insert the listener into your form class:
 		public function setDefaultOptions(OptionsResolverInterface $resolver)
 		{
 			$resolver->setDefaults(array(
-				'data_class' => 'Your\Bundle\\Entity\YourEntity',
+				'data_class' => 'Your\Bundle\Entity\YourEntity',
 				'logger'=>false
 			));
 		}

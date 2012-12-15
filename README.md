@@ -169,12 +169,6 @@ FormErrorLogEntityInterface
 			$this->value = $value;
 		}
 
-        /**
-         * Set uri
-         *
-         * @param string $uri
-         * @return FormErrorLog
-         */
         public function setUri($uri)
         {
             $this->uri = $uri;
@@ -182,11 +176,6 @@ FormErrorLogEntityInterface
             return $this;
         }
 
-        /**
-         * Get uri
-         *
-         * @return string 
-         */
         public function getUri()
         {
             return $this->uri;

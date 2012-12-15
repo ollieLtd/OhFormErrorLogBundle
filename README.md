@@ -121,6 +121,13 @@ FormErrorLogEntityInterface
 		 * @ORM\Column(name="value", type="string", length=2000)
 		 */
 		private $value;
+
+        /**
+         * @var string $uri
+         *
+         * @ORM\Column(type="string", length=512)
+         */
+        private $uri;
 		
 		public function getFormName()
 		{
@@ -162,10 +169,32 @@ FormErrorLogEntityInterface
 			$this->value = $value;
 		}
 
+        /**
+         * Set uri
+         *
+         * @param string $uri
+         * @return FormErrorLog
+         */
+        public function setUri($uri)
+        {
+            $this->uri = $uri;
+
+            return $this;
+        }
+
+        /**
+         * Get uri
+         *
+         * @return string 
+         */
+        public function getUri()
+        {
+            return $this->uri;
+        }
 		
 	}
 
-You can create your own methods to store the date (I use Gedmo)
+You can create your own methods to store the date (I use Gedmo Timestampable)
 
 In your parameters.yml you can set the class to your entity
 

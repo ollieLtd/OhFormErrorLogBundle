@@ -11,5 +11,5 @@ interface ErrorLogInterface
      * @param string $error The error
      * @param string $value The value of the form field or a string representation of an object
      */
-    public function log($formName, $key, $error, $value = '');
+    public function log($formName, $key, $error, $value = '', $uri = '');
 }

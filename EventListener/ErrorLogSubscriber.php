@@ -56,7 +56,8 @@ class ErrorLogSubscriber implements EventSubscriberInterface
         $formName = $form->getName();
 
         foreach($errors as $key => $error) {
-            $this->logger->log($formName, $key, $error['messages'], $error['value']);
+            $uri = $this->request->getUri();
+            $this->logger->log($formName, $key, $error['messages'], $error['value'], $uri);
         }
         
         return null;
@@ -81,6 +82,17 @@ class ErrorLogSubscriber implements EventSubscriberInterface
                 elseif(method_exists($data, 'jsonSerialize'))
                 {
                     $data = json_encode($data->jsonSerialize());
+                }
+                // some people create a toArray() method
+                elseif(method_exists($data, 'toArray') && is_array($array = $data->toArray()))
+                {
+                    // JSON_PRETTY_PRINT is > PHP 5.4
+                    if(defined('JSON_PRETTY_PRINT')) {
+                        $data = json_encode($array, JSON_PRETTY_PRINT);
+                    }else {
+                        $data = json_encode($array);
+                    }
+                    
                 }
                 // lets try to serialize
                 // this could be risky if the object is too large or not implemented correctly

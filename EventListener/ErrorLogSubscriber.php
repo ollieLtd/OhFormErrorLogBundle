@@ -102,7 +102,7 @@ class ErrorLogSubscriber implements EventSubscriberInterface
                 // lets see if we can get the form data from the request
                 elseif($this->request->request->has($form->getName())) {
                     // lets log it
-                    $data = 'POST DATA: '.json_encode($this->request->request->get($form->getName()));getChildren
+                    $data = 'POST DATA: '.json_encode($this->request->request->get($form->getName()));
                 }
                 // it looks like the object isnt loggable
                 else {

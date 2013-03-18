@@ -102,7 +102,7 @@ class ErrorLogSubscriber implements EventSubscriberInterface
                 // lets see if we can get the form data from the request
                 elseif($this->request->request->has($form->getName())) {
                     // lets log it
-                    $data = 'POST DATA: '.json_encode($this->request->request->get($form->getName()));
+                    $data = 'POST DATA: '.json_encode($this->request->request->get($form->getName()));getChildren
                 }
                 // it looks like the object isnt loggable
                 else {
@@ -111,8 +111,8 @@ class ErrorLogSubscriber implements EventSubscriberInterface
             }
             $errors[$key] = array('messages'=>$error->getMessage(), 'value'=>$data);
         }
-        if ($form->hasChildren()) {
-            foreach ($form->getChildren() as $child) {
+        if ($form->count() > 0) {
+            foreach ($form->all() as $child) {
                 if (!$child->isValid()) {
                     $childErrors = $this->getErrorMessages($child);
                     $messages = $values = array();

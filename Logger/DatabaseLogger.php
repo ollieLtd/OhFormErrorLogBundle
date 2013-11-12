@@ -34,7 +34,7 @@ class DatabaseLogger implements ErrorLogInterface
         
         $this->em->persist($entity);
         
-        $this->em->flush();
+        $this->em->flush($entity);
         
     }
     

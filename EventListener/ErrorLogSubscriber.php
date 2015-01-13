@@ -6,12 +6,7 @@ use Oh\FormErrorLogBundle\Logger\ErrorLogInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvents;
-use Symfony\Component\HttpFoundation\Request;
-
-//use Symfony\Component\Serializer\Serializer;
-//use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
-//use Symfony\Component\Serializer\Encoder\JsonEncoder;
-
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class ErrorLogSubscriber implements EventSubscriberInterface
 {
@@ -27,10 +22,10 @@ class ErrorLogSubscriber implements EventSubscriberInterface
      */
     private $request;
 
-    public function __construct(ErrorLogInterface $logger, Request $request)
+    public function __construct(ErrorLogInterface $logger, RequestStack $request)
     {
         $this->logger = $logger;
-        $this->request = $request;
+        $this->request = $request->getMasterRequest();
     }
 
     public static function getSubscribedEvents()

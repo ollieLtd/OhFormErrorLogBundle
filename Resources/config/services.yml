@@ -21,3 +21,14 @@ services:
         class:            %oh_form_error_log.listener.class%
         arguments:        [@oh_form_error_log.logger, @request]
         scope: request
+    oh_form_subscriber:
+        class: Oh\FormErrorLogBundle\EventListener\ErrorLogSubscriber
+        arguments:
+            - @oh_form_error_log.logger.manager
+            - @request_stack
+    oh_form_extension:
+        class: Oh\FormErrorLogBundle\Form\Extension\FormLogTypeExtension
+        arguments:
+            - @oh_form_subscriber
+        tags:
+            - { name: form.type_extension, alias: form }

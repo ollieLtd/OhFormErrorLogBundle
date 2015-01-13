@@ -1,5 +1,5 @@
 {
-    "name": "oh/form-error-log-bundle",
+    "name": "lendable/form-error-log-bundle",
     "type": "symfony-bundle",
     "description": "Log form errors",
     "keywords": ["form", "Symfony2"],

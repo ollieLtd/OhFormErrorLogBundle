@@ -7,7 +7,8 @@ use Oh\FormErrorLogBundle\Entity\FormErrorLogEntityInterface;
 
 /**
  * @ORM\Table(name="form_error_log")
- * @ORM\Entity
+ * @ORM\Entity()
+ * @ORM\HasLifecycleCallbacks()
  */
 class FormErrorLog implements FormErrorLogEntityInterface
 {
@@ -54,6 +55,11 @@ class FormErrorLog implements FormErrorLogEntityInterface
      * @ORM\Column(type="string", length=512)
      */
     private $uri;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
 
     public function getFormName()
     {
@@ -105,6 +111,26 @@ class FormErrorLog implements FormErrorLogEntityInterface
     public function getUri()
     {
         return $this->uri;
+    }
+
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTime $createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->createdAt = new \DateTime();
     }
 
 }

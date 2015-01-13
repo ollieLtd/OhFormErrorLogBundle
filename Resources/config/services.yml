@@ -2,7 +2,7 @@ parameters:
     oh_form_error_log.listener.class:       Oh\FormErrorLogBundle\EventListener\ErrorLogSubscriber
     oh_form_error_log.logger.class:	    Oh\FormErrorLogBundle\Logger\Logger
     oh_form_error_log.db.class:	            Oh\FormErrorLogBundle\Logger\DatabaseLogger
-    oh_form_error_log.db.entity.class:	    Oh\FormErrorLogBundle\Entity\FormErrorLogEntity
+    oh_form_error_log.db.entity.class:	    Oh\FormErrorLogBundle\Entity\FormErrorLog
 
 services:
     oh_form_error_log.logger.db:

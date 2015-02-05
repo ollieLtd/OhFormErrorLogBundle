@@ -24,27 +24,27 @@ class FormErrorLog implements FormErrorLogEntityInterface
 
     /**
      * @ORM\Column(name="form_name", type="string", length=255)
-     * @var type 
+     * @var type
      */
     private $form_name;
 
     /**
      * @var string $field
-     * 
+     *
      * @ORM\Column(name="field", type="string", length=255)
      */
     private $field;
 
     /**
      * @var string $error
-     * 
+     *
      * @ORM\Column(name="error", type="string", length=2000)
      */
     private $error;
 
     /**
      * @var string $error
-     * 
+     *
      * @ORM\Column(name="value", type="string", length=2000)
      */
     private $value;
@@ -59,7 +59,7 @@ class FormErrorLog implements FormErrorLogEntityInterface
     /**
      * @ORM\Column(type="datetime")
      */
-    private $createdAt;
+    private $created;
 
     public function getFormName()
     {
@@ -113,14 +113,14 @@ class FormErrorLog implements FormErrorLogEntityInterface
         return $this->uri;
     }
 
-    public function getCreatedAt()
+    public function getCreated()
     {
-        return $this->createdAt;
+        return $this->created;
     }
 
-    public function setCreatedAt(\DateTime $createdAt)
+    public function setCreated(\DateTime $created)
     {
-        $this->createdAt = $createdAt;
+        $this->created = $created;
 
         return $this;
     }
@@ -128,9 +128,9 @@ class FormErrorLog implements FormErrorLogEntityInterface
     /**
      * @ORM\PrePersist
      */
-    public function setCreatedAtValue()
+    public function setCreatedValue()
     {
-        $this->createdAt = new \DateTime();
+        $this->created = new \DateTime();
     }
 
 }

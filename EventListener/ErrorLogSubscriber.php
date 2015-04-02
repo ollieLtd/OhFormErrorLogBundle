@@ -123,7 +123,17 @@ class ErrorLogSubscriber implements EventSubscriberInterface
 
                     // if there's more than 1 error or value on a field then we can log them all
                     $messages = implode(' | ', $messages);
-                    $values = implode(' | ', $values);
+
+                    $recursiveImplode = function($glue, array $value) use (&$recursiveImplode) {
+                        $ret = '';
+                        foreach ($value as $val) {
+                            $ret .= $glue . (is_array($val) ? $recursiveImplode($glue, $val) : $val);
+                        }
+
+                        return strpos($ret, $glue) === 0 ? substr($ret, strlen($glue)) : $ret;
+                    };
+
+                    $values = $recursiveImplode(' | ', $values);
 
                     $errors[$child->getName()] = array('messages'=>$messages, 'value'=>$values);
                 }

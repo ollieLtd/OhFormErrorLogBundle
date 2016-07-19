@@ -30,7 +30,7 @@ class ErrorLogSubscriber implements EventSubscriberInterface
 
     public static function getSubscribedEvents()
     {
-        return array(FormEvents::POST_BIND => 'postBind');
+        return array(FormEvents::POST_SUBMIT => 'postSubmit');
     }
 
     /**
@@ -38,7 +38,7 @@ class ErrorLogSubscriber implements EventSubscriberInterface
      * @param \Symfony\Component\Form\FormEvent $event
      * @return null
      */
-    public function postBind(FormEvent $event)
+    public function postSubmit(FormEvent $event)
     {
         $form = $event->getForm();
         

@@ -6,13 +6,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Oh\FormErrorLogBundle\Entity\FormErrorLogEntityInterface;
 
 /**
- * @ORM\Table(name="form_error_log")
- * @ORM\Entity()
+ * @ORM\MappedSuperclass()
  * @ORM\HasLifecycleCallbacks()
  */
 class FormErrorLog implements FormErrorLogEntityInterface
 {
-
     /**
      * @var integer $id
      *
@@ -24,7 +22,7 @@ class FormErrorLog implements FormErrorLogEntityInterface
 
     /**
      * @ORM\Column(name="form_name", type="string", length=255)
-     * @var type
+     * @var string
      */
     private $form_name;
 
@@ -132,5 +130,4 @@ class FormErrorLog implements FormErrorLogEntityInterface
     {
         $this->created = new \DateTime();
     }
-
 }

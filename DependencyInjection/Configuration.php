@@ -23,6 +23,9 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('logger')->isRequired()->cannotBeEmpty()->end()
+            ->end()
+            ->children()
+                ->scalarNode('db_entity_class')->defaultValue('Oh\FormErrorLogBundle\Entity\FormErrorLog')->cannotBeEmpty()->end()
             ->end();
 
         return $treeBuilder;

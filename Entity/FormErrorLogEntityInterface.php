@@ -9,5 +9,6 @@ interface FormErrorLogEntityInterface
     public function setField($field);
 
     public function setError($error);
-    
+
+    public function setValue($value);
 }

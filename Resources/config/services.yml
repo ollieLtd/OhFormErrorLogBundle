@@ -1,24 +1,23 @@
 parameters:
-    oh_form_error_log.listener.class:       Oh\FormErrorLogBundle\EventListener\ErrorLogSubscriber
-    oh_form_error_log.logger.class:	    Oh\FormErrorLogBundle\Logger\Logger
-    oh_form_error_log.db.class:	            Oh\FormErrorLogBundle\Logger\DatabaseLogger
-    oh_form_error_log.db.entity.class:	    Oh\FormErrorLogBundle\Entity\FormErrorLog
+    oh_form_error_log.listener.class: Oh\FormErrorLogBundle\EventListener\ErrorLogSubscriber
+    oh_form_error_log.logger.class:	Oh\FormErrorLogBundle\Logger\Logger
+    oh_form_error_log.db.class:	Oh\FormErrorLogBundle\Logger\DatabaseLogger
 
 services:
     oh_form_error_log.logger.db:
-        class:            "%oh_form_error_log.db.class%"
-        arguments:        ["@doctrine.orm.default_entity_manager", "%oh_form_error_log.db.entity.class%"]
+        class: "%oh_form_error_log.db.class%"
+        arguments: ["@doctrine.orm.default_entity_manager", "%oh_form_error_log.db.entity.class%", "@event_dispatcher"]
     oh_form_error_log.logger:
-        class:            "%oh_form_error_log.logger.class%"
-        arguments:        ["@logger"]
+        class: "%oh_form_error_log.logger.class%"
+        arguments: ["@logger"]
         tags:
             - { name: monolog.logger, channel: formerror }
     oh_form_error_log.listener.db:
-        class:            "%oh_form_error_log.listener.class%"
-        arguments:        ["@oh_form_error_log.logger.db", "@request_stack"]
+        class: "%oh_form_error_log.listener.class%"
+        arguments: ["@oh_form_error_log.logger.db", "@request_stack"]
     oh_form_error_log.listener:
-        class:            "%oh_form_error_log.listener.class%"
-        arguments:        ["@oh_form_error_log.logger", "@request_stack"]
+        class: "%oh_form_error_log.listener.class%"
+        arguments: ["@oh_form_error_log.logger", "@request_stack"]
     oh_form_subscriber:
         class: Oh\FormErrorLogBundle\EventListener\ErrorLogSubscriber
         arguments:

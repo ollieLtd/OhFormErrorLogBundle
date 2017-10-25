@@ -1,24 +1,27 @@
 {
-    "name": "oh/form-error-log-bundle",
-    "type": "symfony-bundle",
-    "description": "Log form errors",
-    "keywords": ["form", "Symfony2"],
-    "homepage": "https://github.com/ollieLtd/OhFormErrorLogBundle",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Ollie Harridge",
-            "email": "code@oll.ie"
-        }
-    ],
-    "require": {
-        "php": ">=5.3.2",
-        "symfony/framework-bundle": "~2.1"
-    },
-    "autoload": {
-        "psr-0": { 
-	    "Oh\\FormErrorLogBundle": ""
-        }
-    },
-    "target-dir": "Oh/FormErrorLogBundle"
+  "name": "lendable/form-error-log-bundle",
+  "type": "symfony-bundle",
+  "description": "Log form errors",
+  "keywords": [
+    "form",
+    "Symfony2"
+  ],
+  "homepage": "https://github.com/ollieLtd/OhFormErrorLogBundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ollie Harridge",
+      "email": "code@oll.ie"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.2",
+    "symfony/symfony": "^2|^3"
+  },
+  "autoload": {
+    "psr-0": {
+      "Oh\\FormErrorLogBundle": ""
+    }
+  },
+  "target-dir": "Oh/FormErrorLogBundle"
 }

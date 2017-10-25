@@ -20,9 +20,13 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('oh_form_error_log');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+                ->scalarNode('logger')->isRequired()->cannotBeEmpty()->end()
+            ->end()
+            ->children()
+                ->scalarNode('db_entity_class')->defaultValue('Oh\FormErrorLogBundle\Entity\FormErrorLog')->cannotBeEmpty()->end()
+            ->end();
 
         return $treeBuilder;
     }

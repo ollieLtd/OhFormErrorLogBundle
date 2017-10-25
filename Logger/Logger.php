@@ -2,17 +2,17 @@
 
 namespace Oh\FormErrorLogBundle\Logger;
 
-use Monolog\Logger;
+use Monolog\Logger as MonologLogger;
 use Oh\FormErrorLogBundle\Logger\ErrorLogInterface;
 
 class Logger implements ErrorLogInterface
 {
     /**
-     * @var Logger
+     * @var MonologLogger
      */
     private $logger;
 
-    public function __construct($logger)
+    public function __construct(MonologLogger $logger)
     {
         $this->logger = $logger;
     }

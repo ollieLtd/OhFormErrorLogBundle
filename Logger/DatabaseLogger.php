@@ -31,7 +31,7 @@ class DatabaseLogger implements ErrorLogInterface
 
     public function log($formName, $key, $error, $value = '', $uri = '')
     {
-        if ($this->entityClass == 'Oh\FormErrorLogBundle\Entity\FormErrorLogEntityInterface') {
+        if ($this->entityClass === 'Oh\FormErrorLogBundle\Entity\FormErrorLogEntityInterface') {
             throw new InvalidArgumentException('You need to update your %oh_form_error_log.db.entity.class% parameter to your own class. See the README for help.');
         }
 
@@ -41,7 +41,7 @@ class DatabaseLogger implements ErrorLogInterface
         $entity->setFormName($formName);
         $entity->setField($key);
         $entity->setError($error);
-        $entity->setValue($value);
+        $entity->setValue(serialize($value));
         // for BC
         if (method_exists($entity, 'setUri')) {
             $entity->setUri($uri);

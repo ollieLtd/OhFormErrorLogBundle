@@ -78,7 +78,7 @@ class ErrorLogSubscriber implements EventSubscriberInterface
         foreach ($form->getErrors() as $key => $error) {
             $data = $form->getData();
 
-            $serializedData = $this->serializeData($data);
+            $serializedData = $this->serialize($data);
             if (empty($serializedData)) {
                 $formData = $this->request->request->has($form->getName())
                     ? $this->request->request->get($form->getName())

@@ -11,8 +11,6 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class DatabaseLogger implements ErrorLogInterface
 {
-    use SerializeData;
-
     /**
      * @var EntityManagerInterface
      */

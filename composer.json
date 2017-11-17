@@ -12,10 +12,14 @@
     {
       "name": "Ollie Harridge",
       "email": "code@oll.ie"
+    },
+    {
+      "name": "Lendable Developers",
+      "email": "dev@lendable.co.uk"
     }
   ],
   "require": {
-    "php": ">=5.3.2",
+    "php": ">=5.4",
     "symfony/symfony": "^2|^3"
   },
   "autoload": {

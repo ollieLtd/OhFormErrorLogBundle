@@ -7,7 +7,9 @@ use Symfony\Component\EventDispatcher\Event;
 
 class PrePersistEntityEvent extends Event
 {
-    /** @var FormErrorLogEntityInterface */
+    /**
+     * @var FormErrorLogEntityInterface
+     */
     private $entity;
 
     /**

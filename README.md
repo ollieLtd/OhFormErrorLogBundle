@@ -19,14 +19,11 @@ Installation
 ------------
 
 This bundle is alpha stability due to the lack of testing on different form 
-types. Your composer.json needs to reflect that by setting the
-minimum-stability to "alpha" or "dev"
-
-    "minimum-stability": "alpha"
+types.
 
 Install this bundle as usual by adding to composer.json:
 
-    "oh/form-error-log-bundle": "dev-master"
+    "lendable/form-error-log-bundle": "~1.0"
 
 Register the bundle in `app/AppKernel.php`:
 
@@ -271,4 +268,5 @@ Todo
 Credits
 -------
 
-* Ollie Harridge (ollietb) as the author.
+* Ollie Harridge (ollietb) as the original author.
+* Lendable Ltd as the maintainer.

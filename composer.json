@@ -2,10 +2,7 @@
   "name": "lendable/form-error-log-bundle",
   "type": "symfony-bundle",
   "description": "Log form errors",
-  "keywords": [
-    "form",
-    "Symfony2"
-  ],
+  "keywords": ["symfony", "bundle", "lendable"],
   "homepage": "https://github.com/ollieLtd/OhFormErrorLogBundle",
   "license": "MIT",
   "authors": [
@@ -20,7 +17,10 @@
   ],
   "require": {
     "php": ">=5.4",
-    "symfony/symfony": "^2|^3"
+    "symfony/symfony": "~2.7|~3.0|~4.0"
+  },
+  "require-dev": {
+    "jakub-onderka/php-parallel-lint": "^0.9.2"
   },
   "autoload": {
     "psr-0": {

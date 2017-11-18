@@ -49,4 +49,4 @@ install:
   - if [ "$deps" = "low" ]; then composer --prefer-lowest --prefer-stable update; fi;
 
 script:
-  - svendor/jakub-onderka/php-parallel-lint/parallel-lint --exclude vendor .
+  - vendor/jakub-onderka/php-parallel-lint/parallel-lint --exclude vendor .

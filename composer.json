@@ -11,21 +11,20 @@
       "email": "code@oll.ie"
     },
     {
-      "name": "Lendable Developers",
+      "name": "Lendable Ltd",
       "email": "dev@lendable.co.uk"
     }
   ],
+  "autoload": {
+    "psr-4": {
+      "Oh\\FormErrorLogBundle\\": "src/"
+    }
+  },
   "require": {
     "php": ">=5.5",
     "symfony/symfony": "~2.7|~3.0|~4.0"
   },
   "require-dev": {
     "jakub-onderka/php-parallel-lint": "^0.9.2"
-  },
-  "autoload": {
-    "psr-0": {
-      "Oh\\FormErrorLogBundle": ""
-    }
-  },
-  "target-dir": "Oh/FormErrorLogBundle"
+  }
 }

@@ -25,7 +25,7 @@ class OhFormErrorLogExtension extends Extension
         $container->setAlias('oh_form_error_log.logger.manager', $config['logger']);
         $container->setParameter('oh_form_error_log.db.entity.class', $config['db_entity_class']);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
     }
 }
